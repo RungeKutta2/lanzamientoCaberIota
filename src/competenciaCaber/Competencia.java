@@ -1,6 +1,9 @@
 package competenciaCaber;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class Competencia {
 	private ArrayList<Integer> ganadoresDistancia;
@@ -13,9 +16,22 @@ public class Competencia {
 		concursantes = new ArrayList<Concursante>();
 	}
 	
-	public ArrayList<Integer> calcularGanadorDistancia() {
-		return null;
-		
+	public int compararDistancias(Concursante concursante1, Concursante concursante2) {
+		return (int)(concursante1.getDistanciaTotal() - concursante2.getDistanciaTotal());
+	}
+	
+	public List<Integer> calcularGanadorDistancia() {
+		List<Integer> ganadoresDistancia = new ArrayList<Integer>(3);
+		Collections.sort(concursantes, new Comparator<Concursante>(){
+			public int compare(Concursante concursante1, Concursante concursante2) {
+				return (int)(concursante1.getDistanciaTotal() - concursante2.getDistanciaTotal());
+			}
+		});
+		for (int i = 0; i < 3; i++) {	
+			ganadoresDistancia.add(i, concursantes.get(i).getNumeroDeConcursante());
+		}
+		System.out.println(ganadoresDistancia);
+		return ganadoresDistancia;
 	}
 	
 	public ArrayList<Integer> calcularGanadorConsistencia() {

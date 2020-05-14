@@ -15,13 +15,9 @@ public class DatosCompetencia {
 			Scanner scanner = new Scanner (new FileReader(path));
 			int cantLanzadores = scanner.nextInt();
 			for (int i = 0; i < cantLanzadores; i++) {
-				concursante = new Concursante();
-				concursante.setNumeroDeConcursante(i+1);
+				concursante = new Concursante(i+1);
 				for(int j = 0; j < 3; j++) {
-					lanzamiento = new Lanzamiento();
-					lanzamiento.setDistancia(scanner.nextDouble());
-					lanzamiento.setAngulo(scanner.nextDouble());
-					lanzamiento.verificarLanzamiento();
+					lanzamiento = new Lanzamiento(scanner.nextDouble(), scanner.nextDouble());
 					concursante.setLanzamientos(lanzamiento);
 				}
 				competencia.setConcursantes(concursante);

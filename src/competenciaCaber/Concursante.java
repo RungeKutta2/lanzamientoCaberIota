@@ -8,18 +8,26 @@ public class Concursante {
 	private double distanciaTotal;
 	private ArrayList<Lanzamiento> lanzamientos;
 	
-	public Concursante() {
+	public Concursante(int numeroDeConcursante) {
+		this.numeroDeConcursante = numeroDeConcursante;
 		lanzamientos = new ArrayList<Lanzamiento>();
 	}
 	
-	public double calcularConsistencia() {
-//		15, 15, 15 ---- 0 - 1
-		return consistencia;
+	/*public boolean validar() {
 		
+	}*/
+	
+	public double calcularConsistencia() {
+		
+		return consistencia;
 	}
 	
 	public double calcularDistanciaTotal() {
-		return consistencia;
+		double distanciaTotal = 0;
+		for (Lanzamiento lanzamiento : lanzamientos) {
+			distanciaTotal += lanzamiento.calcularDistanciaFinal();
+		}
+		return distanciaTotal;
 		
 	}
 

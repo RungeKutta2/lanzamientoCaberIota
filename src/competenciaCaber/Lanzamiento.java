@@ -4,6 +4,12 @@ public class Lanzamiento {
 	private double distancia;
 	private double angulo;
 	
+	public Lanzamiento(double distancia, double angulo) {
+		super();
+		this.distancia = distancia;
+		this.angulo = angulo;
+	}
+	
 	public double getDistancia() {
 		return distancia;
 	}
@@ -22,10 +28,11 @@ public class Lanzamiento {
 	}
 	
 	public double calcularDistanciaFinal() {
-		if(this.angulo <= 11 && this.angulo >= 1) {
-			this.distancia *= 0.8; //Ver si modificamos adentro o no.
+		double distanciaFinal = 0;
+		if(this.verificarLanzamiento() && this.angulo >= 30 && this.angulo <= -30) {
+			distanciaFinal = this.distancia * 0.8;
 		}
-		return this.distancia;
+		return distanciaFinal;
 	}
 	
 	
