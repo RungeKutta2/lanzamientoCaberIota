@@ -50,7 +50,8 @@ public class Concursante {
 	}
 
 	public double getDistanciaTotal() {
-		return calcularDistanciaTotal();
+		distanciaTotal = calcularDistanciaTotal();
+		return distanciaTotal;
 	}
 
 	public void setDistanciaTotal(double distanciaTotal) {
