@@ -11,6 +11,7 @@ public class Concursante {
 	public Concursante(int numeroDeConcursante) {
 		this.numeroDeConcursante = numeroDeConcursante;
 		lanzamientos = new ArrayList<Lanzamiento>();
+		
 	}
 
 	/*

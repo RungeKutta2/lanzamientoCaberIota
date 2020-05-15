@@ -28,7 +28,7 @@ public class Competencia {
 			}
 		});
 		
-		for (int i = 2; i >= 0; i--) {
+		for (int i = 2; i >=0; i--) {
 			ganadoresDistancia.add(concursantes.get(i).getNumeroDeConcursante());
 		}
 		System.out.println(ganadoresDistancia);

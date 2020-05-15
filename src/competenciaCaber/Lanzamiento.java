@@ -5,7 +5,6 @@ public class Lanzamiento {
 	private double angulo;
 
 	public Lanzamiento(double distancia, double angulo) {
-		super();
 		this.distancia = distancia;
 		this.angulo = angulo;
 	}
@@ -32,11 +31,11 @@ public class Lanzamiento {
 
 	public double calcularDistanciaFinal() {
 		double distanciaFinal = 0;
-		if (this.verificarLanzamiento()) {
-			if (this.angulo <= 30 && this.angulo >= -30) {
-				distanciaFinal = this.distancia;
+		if (verificarLanzamiento()) {
+			if (angulo <= 30 && angulo >= -30) {
+				distanciaFinal = distancia;
 			} else {
-				distanciaFinal = this.distancia * 0.8;
+				distanciaFinal = distancia * 0.8;
 			}
 		}
 
