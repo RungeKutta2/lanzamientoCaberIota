@@ -25,13 +25,12 @@ public class Concursante {
 		return consistencia;
 	}
 
-	public double calcularDistanciaTotal() {
+	public void calcularDistanciaTotal() {
 		double distanciaTotal = 0;
 		for (Lanzamiento lanzamiento : lanzamientos) {
 			distanciaTotal += lanzamiento.calcularDistanciaFinal();
 		}
-		return distanciaTotal;
-
+		this.distanciaTotal = distanciaTotal;
 	}
 
 	public int getNumeroDeConcursante() {
@@ -51,7 +50,7 @@ public class Concursante {
 	}
 
 	public Double getDistanciaTotal() {
-		distanciaTotal = calcularDistanciaTotal();
+		calcularDistanciaTotal();
 		return distanciaTotal;
 	}
 

@@ -32,10 +32,12 @@ public class Competencia {
 		for (int i = 0; i < 3; i++) {
 			ganadoresDistancia.add(concursantes.get(i).getNumeroDeConcursante());
 		}
+		System.out.println();;
 		return ganadoresDistancia;
 	}
 
 	public ArrayList<Integer> calcularGanadorConsistencia() {
+		
 		return null;
 
 	}
