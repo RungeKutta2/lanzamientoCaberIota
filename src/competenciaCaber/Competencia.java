@@ -16,22 +16,22 @@ public class Competencia {
 		concursantes = new ArrayList<Concursante>();
 	}
 
-	public int compararDistancias(Concursante concursante1, Concursante concursante2) {
-		return (int) (concursante1.getDistanciaTotal() - concursante2.getDistanciaTotal());
-	}
+	public static Comparator<Concursante> DistanciaComparador = new Comparator<Concursante>() {
+
+		@Override
+		public int compare(Concursante concursante1, Concursante concursante2) {
+			return concursante2.getDistanciaTotal().compareTo(concursante1.getDistanciaTotal());
+		}
+
+	};
 
 	public List<Integer> calcularGanadorDistancia() {
 		List<Integer> ganadoresDistancia = new ArrayList<Integer>(3);
-		Collections.sort(concursantes, new Comparator<Concursante>() {
-			public int compare(Concursante concursante1, Concursante concursante2) {
-				return (int) (concursante1.getDistanciaTotal() - concursante2.getDistanciaTotal());
-			}
-		});
-		
-		for (int i = 2; i >=0; i--) {
+
+		Collections.sort(concursantes, DistanciaComparador);
+		for (int i = 0; i < 3; i++) {
 			ganadoresDistancia.add(concursantes.get(i).getNumeroDeConcursante());
 		}
-		System.out.println(ganadoresDistancia);
 		return ganadoresDistancia;
 	}
 

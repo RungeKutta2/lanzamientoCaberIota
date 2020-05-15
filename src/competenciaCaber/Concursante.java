@@ -11,7 +11,7 @@ public class Concursante {
 	public Concursante(int numeroDeConcursante) {
 		this.numeroDeConcursante = numeroDeConcursante;
 		lanzamientos = new ArrayList<Lanzamiento>();
-		
+
 	}
 
 	/*
@@ -50,7 +50,7 @@ public class Concursante {
 		this.consistencia = consistencia;
 	}
 
-	public double getDistanciaTotal() {
+	public Double getDistanciaTotal() {
 		distanciaTotal = calcularDistanciaTotal();
 		return distanciaTotal;
 	}
