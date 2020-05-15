@@ -25,20 +25,41 @@ public class Competencia {
 
 	};
 
-	public List<Integer> calcularGanadorDistancia() {
-		List<Integer> ganadoresDistancia = new ArrayList<Integer>(3);
+	public static Comparator<Concursante> ConsistenciaComparador = new Comparator<Concursante>() {
+
+		@Override
+		public int compare(Concursante concursante1, Concursante concursante2) {
+			return concursante2.getConsistencia().compareTo(concursante1.getConsistencia());
+		}
+
+	};
+
+	public ArrayList<Integer> calcularGanadorDistancia() {
+		ArrayList<Integer> ganadoresDistancia = new ArrayList<Integer>(3);
 
 		Collections.sort(concursantes, DistanciaComparador);
+
 		for (int i = 0; i < 3; i++) {
-			ganadoresDistancia.add(concursantes.get(i).getNumeroDeConcursante());
+			if (concursantes.get(i).getDistanciaTotal() != 0) {
+				ganadoresDistancia.add(concursantes.get(i).getNumeroDeConcursante());
+			}
 		}
-		System.out.println();;
+		System.out.println();
+		;
 		return ganadoresDistancia;
 	}
 
 	public ArrayList<Integer> calcularGanadorConsistencia() {
-		
-		return null;
+		ArrayList<Integer> ganadoresConsistencia = new ArrayList<Integer>(3);
+		Collections.sort(concursantes, ConsistenciaComparador);
+
+		for (int i = 0; i < 3; i++) {
+			if (concursantes.get(i).getConsistencia() != 0) {
+				ganadoresConsistencia.add(concursantes.get(i).getNumeroDeConcursante());
+			}
+		}
+
+		return ganadoresConsistencia;
 
 	}
 
