@@ -3,7 +3,6 @@ package competenciaCaber;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 
 public class Competencia {
 	private ArrayList<Integer> ganadoresDistancia;
@@ -14,6 +13,36 @@ public class Competencia {
 		ganadoresDistancia = new ArrayList<Integer>();
 		ganadoresConsistencia = new ArrayList<Integer>();
 		concursantes = new ArrayList<Concursante>();
+	}
+
+	public ArrayList<Integer> calcularGanadorDistancia() {
+		ArrayList<Integer> ganadoresDistancia = new ArrayList<Integer>(3);
+
+		Collections.sort(concursantes, DistanciaComparador);
+
+		for (int i = 0; i < ganadoresDistancia.size(); i++) {
+			if (concursantes.get(i).getDistanciaTotal() != 0) {
+				ganadoresDistancia.add(concursantes.get(i).getNumeroDeConcursante());
+			}
+		}
+		System.out.println();
+		;
+		return ganadoresDistancia;
+	}
+
+	public ArrayList<Integer> calcularGanadorConsistencia() {
+		ArrayList<Integer> ganadoresConsistencia = new ArrayList<Integer>(3);
+		
+		Collections.sort(concursantes, ConsistenciaComparador);
+
+		for (int i = 0; i < ganadoresConsistencia.size(); i++) {
+			if (concursantes.get(i).getConsistencia() != 0) {
+				ganadoresConsistencia.add(concursantes.get(i).getNumeroDeConcursante());
+			}
+		}
+
+		return ganadoresConsistencia;
+
 	}
 
 	public static Comparator<Concursante> DistanciaComparador = new Comparator<Concursante>() {
@@ -34,39 +63,6 @@ public class Competencia {
 
 	};
 
-	public ArrayList<Integer> calcularGanadorDistancia() {
-		ArrayList<Integer> ganadoresDistancia = new ArrayList<Integer>(3);
-
-		Collections.sort(concursantes, DistanciaComparador);
-
-		for (int i = 0; i < 3; i++) {
-			if (concursantes.get(i).getDistanciaTotal() != 0) {
-				ganadoresDistancia.add(concursantes.get(i).getNumeroDeConcursante());
-			}
-		}
-		System.out.println();
-		;
-		return ganadoresDistancia;
-	}
-
-	public ArrayList<Integer> calcularGanadorConsistencia() {
-		ArrayList<Integer> ganadoresConsistencia = new ArrayList<Integer>(3);
-		Collections.sort(concursantes, ConsistenciaComparador);
-
-		for (int i = 0; i < 3; i++) {
-			if (concursantes.get(i).getConsistencia() != 0) {
-				ganadoresConsistencia.add(concursantes.get(i).getNumeroDeConcursante());
-			}
-		}
-
-		return ganadoresConsistencia;
-
-	}
-
-	public ArrayList<Concursante> getConcursantes() {
-		return concursantes;
-	}
-
 	public void setConcursantes(Concursante concursante) {
 		this.concursantes.add(concursante);
 	}
@@ -75,16 +71,8 @@ public class Competencia {
 		return ganadoresDistancia;
 	}
 
-	public void setGanadoresDistancia(ArrayList<Integer> ganadoresDistancia) {
-		this.ganadoresDistancia = ganadoresDistancia;
-	}
-
 	public ArrayList<Integer> getGanadoresConsistencia() {
 		return ganadoresConsistencia;
-	}
-
-	public void setGanadoresConsistencia(ArrayList<Integer> ganadoresConsistencia) {
-		this.ganadoresConsistencia = ganadoresConsistencia;
 	}
 
 }

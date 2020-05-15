@@ -7,59 +7,59 @@ public class Concursante {
 	private double consistencia;
 	private double distanciaTotal;
 	private ArrayList<Lanzamiento> lanzamientos;
+	private final static int SIN_CALCULAR = -1;
 
 	public Concursante(int numeroDeConcursante) {
 		this.numeroDeConcursante = numeroDeConcursante;
 		lanzamientos = new ArrayList<Lanzamiento>();
+		distanciaTotal = SIN_CALCULAR;
 
 	}
 
-	/*
-	 * public boolean validar() {
-	 * 
-	 * }
-	 */
-
 	public double calcularConsistencia() {
+		double consistencia = 0;
+		if (validar()) {
+			for (Lanzamiento lanzamiento : lanzamientos) {
+				consistencia += lanzamiento.getAngulo();
+			}
+
+		}
 
 		return consistencia;
 	}
 
+	private boolean validar() {
+		for (Lanzamiento lanzamiento : lanzamientos) {
+			if (!lanzamiento.verificarLanzamiento()) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	public void calcularDistanciaTotal() {
-		double distanciaTotal = 0;
+		distanciaTotal = 0;
 		for (Lanzamiento lanzamiento : lanzamientos) {
 			distanciaTotal += lanzamiento.calcularDistanciaFinal();
 		}
-		this.distanciaTotal = distanciaTotal;
 	}
 
 	public int getNumeroDeConcursante() {
 		return numeroDeConcursante;
 	}
 
-	public void setNumeroDeConcursante(int numeroDeConcursante) {
-		this.numeroDeConcursante = numeroDeConcursante;
-	}
-
 	public Double getConsistencia() {
 		return consistencia;
 	}
 
-	public void setConsistencia(double consistencia) {
-		this.consistencia = consistencia;
-	}
-
 	public Double getDistanciaTotal() {
-		calcularDistanciaTotal();
+		if (distanciaTotal == SIN_CALCULAR) {
+			calcularDistanciaTotal();
+		}
 		return distanciaTotal;
 	}
 
-
-	public ArrayList<Lanzamiento> getLanzamientos() {
-		return lanzamientos;
-	}
-
 	public void setLanzamientos(Lanzamiento lanzamiento) {
-		this.lanzamientos.add(lanzamiento);
+		lanzamientos.add(lanzamiento);
 	}
 }

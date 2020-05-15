@@ -9,20 +9,8 @@ public class Lanzamiento {
 		this.angulo = angulo;
 	}
 
-	public double getDistancia() {
-		return distancia;
-	}
-
-	public void setDistancia(double distancia) {
-		this.distancia = distancia;
-	}
-
 	public double getAngulo() {
 		return angulo;
-	}
-
-	public void setAngulo(double angulo) {
-		this.angulo = angulo;
 	}
 
 	public boolean verificarLanzamiento() {
