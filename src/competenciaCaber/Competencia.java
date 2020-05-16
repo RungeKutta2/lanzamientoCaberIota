@@ -8,6 +8,7 @@ public class Competencia {
 	private ArrayList<Integer> ganadoresDistancia;
 	private ArrayList<Integer> ganadoresConsistencia;
 	private ArrayList<Concursante> concursantes;
+	private final static int SIN_CALCULAR = -1;
 
 	public Competencia() {
 		ganadoresDistancia = new ArrayList<Integer>();
@@ -20,13 +21,12 @@ public class Competencia {
 
 		Collections.sort(concursantes, DistanciaComparador);
 
-		for (int i = 0; i < ganadoresDistancia.size(); i++) {
-			if (concursantes.get(i).getDistanciaTotal() != 0) {
+		for (int i = 0; i < 3; i++) {
+			if (concursantes.get(i).getDistanciaTotal() != SIN_CALCULAR) {
 				ganadoresDistancia.add(concursantes.get(i).getNumeroDeConcursante());
 			}
 		}
 		System.out.println();
-		;
 		return ganadoresDistancia;
 	}
 
@@ -35,12 +35,12 @@ public class Competencia {
 		
 		Collections.sort(concursantes, ConsistenciaComparador);
 
-		for (int i = 0; i < ganadoresConsistencia.size(); i++) {
-			if (concursantes.get(i).getConsistencia() != 0) {
+		for (int i = 0; i < 3; i++) {
+			if (concursantes.get(i).getConsistencia() != SIN_CALCULAR) {
 				ganadoresConsistencia.add(concursantes.get(i).getNumeroDeConcursante());
 			}
 		}
-
+		System.out.println();
 		return ganadoresConsistencia;
 
 	}

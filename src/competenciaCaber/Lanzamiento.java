@@ -30,4 +30,8 @@ public class Lanzamiento {
 		return distanciaFinal;
 	}
 
+	public double getDistancia() {
+		return distancia;
+	}
+
 }
