@@ -16,8 +16,8 @@ public class Competencia {
 		concursantes = new ArrayList<Concursante>();
 	}
 
-	public ArrayList<Integer> calcularGanadorDistancia() {
-		ArrayList<Integer> ganadoresDistancia = new ArrayList<Integer>(3);
+	public void calcularGanadorDistancia() {
+		ganadoresDistancia = new ArrayList<Integer>(3);
 
 		Collections.sort(concursantes, DistanciaComparador);
 
@@ -26,12 +26,10 @@ public class Competencia {
 				ganadoresDistancia.add(concursantes.get(i).getNumeroDeConcursante());
 			}
 		}
-		System.out.println();
-		return ganadoresDistancia;
 	}
 
-	public ArrayList<Integer> calcularGanadorConsistencia() {
-		ArrayList<Integer> ganadoresConsistencia = new ArrayList<Integer>(3);
+	public void calcularGanadorConsistencia() {
+		ganadoresConsistencia = new ArrayList<Integer>(3);
 		
 		Collections.sort(concursantes, ConsistenciaComparador);
 
@@ -40,9 +38,6 @@ public class Competencia {
 				ganadoresConsistencia.add(concursantes.get(i).getNumeroDeConcursante());
 			}
 		}
-		System.out.println();
-		return ganadoresConsistencia;
-
 	}
 
 	public static Comparator<Concursante> DistanciaComparador = new Comparator<Concursante>() {
@@ -58,7 +53,7 @@ public class Competencia {
 
 		@Override
 		public int compare(Concursante concursante1, Concursante concursante2) {
-			return concursante2.getConsistencia().compareTo(concursante1.getConsistencia());
+			return concursante1.getConsistencia().compareTo(concursante2.getConsistencia());
 		}
 
 	};

@@ -32,9 +32,9 @@ public class DatosCompetencia {
 		return competencia;
 	}
 	
-	public void escribirArchivo(String path, Competencia competencia) {
+	public static void escribirArchivo(String path, Competencia competencia) {
 		try {
-			BufferedWriter writer = new BufferedWriter(new FileWriter("path"));
+			BufferedWriter writer = new BufferedWriter(new FileWriter(path));
 			for (Integer ganador : competencia.getGanadoresConsistencia()) {
 				writer.write(ganador + " ");	
 			}

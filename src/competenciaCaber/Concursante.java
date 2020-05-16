@@ -17,17 +17,6 @@ public class Concursante {
 
 	}
 
-//	public double calcularConsistencia() {
-//		double consistencia = 0;
-//		if (validar()) {
-//			for (Lanzamiento lanzamiento : lanzamientos) {
-//				consistencia += lanzamiento.getAngulo();
-//			}
-//
-//		}
-//		return consistencia;
-//	}
-
 	public void calcularConsistencia() {
 		if (validar()) {
 			double sumatoriaAngulos = 0;
@@ -75,12 +64,11 @@ public class Concursante {
 	}
 
 	public int getNumeroDeConcursante() {
-
 		return numeroDeConcursante;
 	}
 
 	public Double getConsistencia() {
-		if (distanciaTotal == SIN_CALCULAR) {
+		if (consistencia == SIN_CALCULAR) {
 			calcularConsistencia();			
 		}
 		return consistencia;
