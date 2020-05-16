@@ -7,59 +7,81 @@ public class Concursante {
 	private double consistencia;
 	private double distanciaTotal;
 	private ArrayList<Lanzamiento> lanzamientos;
-	
+	private final static int SIN_CALCULAR = -1;
+
 	public Concursante(int numeroDeConcursante) {
 		this.numeroDeConcursante = numeroDeConcursante;
 		lanzamientos = new ArrayList<Lanzamiento>();
+		distanciaTotal = SIN_CALCULAR;
+		consistencia = SIN_CALCULAR;
+
 	}
-	
-	/*public boolean validar() {
-		
-	}*/
-	
-	public double calcularConsistencia() {
-		
-		return consistencia;
+
+	public void calcularConsistencia() {
+		if (validar()) {
+			double sumatoriaAngulos = 0;
+			double sumatoriaDistancias = 0;
+			for (Lanzamiento lanzamiento : lanzamientos) {
+				sumatoriaAngulos += lanzamiento.getAngulo();
+				sumatoriaDistancias += lanzamiento.getDistancia();
+			}
+			double mediaAngulo = sumatoriaAngulos / 3;
+			double mediaDistancia = sumatoriaDistancias / 3;
+
+			sumatoriaAngulos = 0;
+			sumatoriaDistancias = 0;
+			double varianzaAngulo = 0;
+			double varianzaDistancia = 0;
+			for (Lanzamiento lanzamiento : lanzamientos) {
+				sumatoriaAngulos = Math.pow(lanzamiento.getAngulo() - mediaAngulo, 2);
+				varianzaAngulo += sumatoriaAngulos;
+				sumatoriaDistancias = Math.pow(lanzamiento.getDistancia() - mediaDistancia, 2);
+				varianzaDistancia += sumatoriaDistancias;
+			}
+
+			varianzaAngulo = varianzaAngulo / 2;
+			varianzaDistancia = varianzaDistancia / 2;
+			double desvioAngulo = Math.sqrt(varianzaAngulo);
+			double desvioDistancia = Math.sqrt(varianzaDistancia);
+			consistencia = (Math.rint(desvioAngulo * 100) / 100) + (Math.rint(desvioDistancia * 100) / 100);
+		}
 	}
-	
-	public double calcularDistanciaTotal() {
-		double distanciaTotal = 0;
+
+	private boolean validar() {
+		for (Lanzamiento lanzamiento : lanzamientos) {
+			if (!lanzamiento.verificarLanzamiento()) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public void calcularDistanciaTotal() {
+		distanciaTotal = 0;
 		for (Lanzamiento lanzamiento : lanzamientos) {
 			distanciaTotal += lanzamiento.calcularDistanciaFinal();
 		}
-		return distanciaTotal;
-		
 	}
 
 	public int getNumeroDeConcursante() {
 		return numeroDeConcursante;
 	}
 
-	public void setNumeroDeConcursante(int numeroDeConcursante) {
-		this.numeroDeConcursante = numeroDeConcursante;
-	}
-
-	public double getConsistencia() {
+	public Double getConsistencia() {
+		if (consistencia == SIN_CALCULAR) {
+			calcularConsistencia();			
+		}
 		return consistencia;
 	}
 
-	public void setConsistencia(double consistencia) {
-		this.consistencia = consistencia;
-	}
-
-	public double getDistanciaTotal() {
+	public Double getDistanciaTotal() {
+		if (distanciaTotal == SIN_CALCULAR) {
+			calcularDistanciaTotal();
+		}
 		return distanciaTotal;
 	}
 
-	public void setDistanciaTotal(double distanciaTotal) {
-		this.distanciaTotal = distanciaTotal;
-	}
-	
-	public ArrayList<Lanzamiento> getLanzamientos() {
-		return lanzamientos;
-	}
-
 	public void setLanzamientos(Lanzamiento lanzamiento) {
-		this.lanzamientos.add(lanzamiento);
+		lanzamientos.add(lanzamiento);
 	}
 }

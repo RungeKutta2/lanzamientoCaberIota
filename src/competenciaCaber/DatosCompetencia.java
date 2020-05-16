@@ -1,8 +1,11 @@
 package competenciaCaber;
 
+
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.ArrayList;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class DatosCompetencia {
@@ -24,13 +27,25 @@ public class DatosCompetencia {
 			}
 			scanner.close();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return competencia;
 	}
 	
-	public void escribirArchivo(String path, Competencia competencia) {
+	public static void escribirArchivo(String path, Competencia competencia) {
+		try {
+			BufferedWriter writer = new BufferedWriter(new FileWriter(path));
+			for (Integer ganador : competencia.getGanadoresConsistencia()) {
+				writer.write(ganador + " ");	
+			}
+			writer.newLine();
+			for (Integer ganador : competencia.getGanadoresDistancia()) {
+				writer.write(ganador + " ");	
+			}
+			writer.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 	}
 }

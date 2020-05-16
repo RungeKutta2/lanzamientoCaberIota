@@ -1,12 +1,18 @@
 package competenciaCaber;
 
-import java.util.ArrayList;
+
 
 public class Main {
 
 	public static void main(String[] args) {
-		Competencia competencia = DatosCompetencia.leerArchivo("Lanzamientos.txt");
+		Competencia competencia = DatosCompetencia.leerArchivo("C:\\Repo\\LanzandoElCaber\\lanzamientoCaberIota\\Lanzamientos.txt");
 		competencia.calcularGanadorDistancia();
+		competencia.calcularGanadorConsistencia();
+		DatosCompetencia.escribirArchivo("C:\\Repo\\LanzandoElCaber\\lanzamientoCaberIota\\Ganadores.txt", competencia);
+		
+		
+		
+		
 	}
 
 }
