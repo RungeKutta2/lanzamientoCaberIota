@@ -6,11 +6,13 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class DatosCompetencia {
 
 	public static Competencia leerArchivo(String path) {
+		Locale.setDefault(Locale.ENGLISH);
 		Competencia competencia = new Competencia();
 		Concursante concursante;
 		Lanzamiento lanzamiento;

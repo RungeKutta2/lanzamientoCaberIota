@@ -8,12 +8,13 @@ public class Concursante {
 	private double distanciaTotal;
 	private ArrayList<Lanzamiento> lanzamientos;
 	private final static int SIN_CALCULAR = -1;
+	private final static int LANZAMIENTO_INVALIDO = -2;
 
 	public Concursante(int numeroDeConcursante) {
 		this.numeroDeConcursante = numeroDeConcursante;
-		lanzamientos = new ArrayList<Lanzamiento>();
-		distanciaTotal = SIN_CALCULAR;
-		consistencia = SIN_CALCULAR;
+		this.lanzamientos = new ArrayList<Lanzamiento>();
+		this.distanciaTotal = SIN_CALCULAR;
+		this.consistencia = SIN_CALCULAR;
 
 	}
 
@@ -21,7 +22,7 @@ public class Concursante {
 		if (validar()) {
 			double sumatoriaAngulos = 0;
 			double sumatoriaDistancias = 0;
-			for (Lanzamiento lanzamiento : lanzamientos) {
+			for (Lanzamiento lanzamiento : this.lanzamientos) {
 				sumatoriaAngulos += lanzamiento.getAngulo();
 				sumatoriaDistancias += lanzamiento.getDistancia();
 			}
@@ -32,7 +33,7 @@ public class Concursante {
 			sumatoriaDistancias = 0;
 			double varianzaAngulo = 0;
 			double varianzaDistancia = 0;
-			for (Lanzamiento lanzamiento : lanzamientos) {
+			for (Lanzamiento lanzamiento : this.lanzamientos) {
 				sumatoriaAngulos = Math.pow(lanzamiento.getAngulo() - mediaAngulo, 2);
 				varianzaAngulo += sumatoriaAngulos;
 				sumatoriaDistancias = Math.pow(lanzamiento.getDistancia() - mediaDistancia, 2);
@@ -43,17 +44,21 @@ public class Concursante {
 			varianzaDistancia = varianzaDistancia / 2;
 			double desvioAngulo = Math.sqrt(varianzaAngulo);
 			double desvioDistancia = Math.sqrt(varianzaDistancia);
-			consistencia = (Math.rint(desvioAngulo * 100) / 100) + (Math.rint(desvioDistancia * 100) / 100);
+			this.consistencia = (desvioAngulo + desvioDistancia);
+		}
+		else {
+			this.consistencia = LANZAMIENTO_INVALIDO;			
 		}
 	}
 
 	private boolean validar() {
-		for (Lanzamiento lanzamiento : lanzamientos) {
-			if (!lanzamiento.verificarLanzamiento()) {
-				return false;
-			}
+		boolean esValido = true;
+		int i = 0;
+		while(esValido && i<3) {
+			esValido = lanzamientos.get(i).verificarLanzamiento();
+			i++;
 		}
-		return true;
+		return esValido;
 	}
 
 	public void calcularDistanciaTotal() {
@@ -69,7 +74,7 @@ public class Concursante {
 
 	public Double getConsistencia() {
 		if (consistencia == SIN_CALCULAR) {
-			calcularConsistencia();			
+			calcularConsistencia();
 		}
 		return consistencia;
 	}
