@@ -5,7 +5,6 @@ import java.io.FileReader;
 import java.util.Scanner;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 import competenciaCaber.Competencia;
@@ -44,9 +43,10 @@ public class CompetenciaTest {
 		try {
 			scannerEsperado = new Scanner (new FileReader("SinGanadoresEsperado.out"));
 			scannerObtenido = new Scanner (new FileReader("SinGanadoresObtenido.out"));
-			while(scannerEsperado.hasNext() && scannerObtenido.hasNext()) {
+			while(scannerEsperado.hasNext() || scannerObtenido.hasNext()) {
 				Assert.assertEquals(scannerEsperado.nextInt(), scannerObtenido.nextInt());				
 			}
+			
 			scannerEsperado.close();
 			scannerObtenido.close();
 		} catch (FileNotFoundException e) {
@@ -54,6 +54,7 @@ public class CompetenciaTest {
 			e.printStackTrace();
 		}
 	}
+
 	
 	@Test
 	public void testEmpate() {

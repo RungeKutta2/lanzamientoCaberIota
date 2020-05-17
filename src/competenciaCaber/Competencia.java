@@ -8,7 +8,6 @@ public class Competencia {
 	private ArrayList<Integer> ganadoresDistancia;
 	private ArrayList<Integer> ganadoresConsistencia;
 	private ArrayList<Concursante> concursantes;
-	private final static int SIN_CALCULAR = -1;
 	private final static int LANZAMIENTO_INVALIDO = -2;
 
 	public Competencia() {
@@ -23,7 +22,7 @@ public class Competencia {
 		Collections.sort(concursantes, DistanciaComparador);
 
 		for (int i = 0; i < 3; i++) {
-			if (concursantes.get(i).getDistanciaTotal() != SIN_CALCULAR) {
+			if (concursantes.get(i).getDistanciaTotal() != 0) {
 				ganadoresDistancia.add(concursantes.get(i).getNumeroDeConcursante());
 			}
 		}
