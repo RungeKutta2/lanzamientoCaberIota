@@ -48,12 +48,13 @@ public class Concursante {
 	}
 
 	private boolean validar() {
+		boolean esValido = true;
 		for (Lanzamiento lanzamiento : lanzamientos) {
 			if (!lanzamiento.verificarLanzamiento()) {
-				return false;
+				return !esValido;
 			}
 		}
-		return true;
+		return esValido;
 	}
 
 	public void calcularDistanciaTotal() {
@@ -69,7 +70,7 @@ public class Concursante {
 
 	public Double getConsistencia() {
 		if (consistencia == SIN_CALCULAR) {
-			calcularConsistencia();			
+			calcularConsistencia();
 		}
 		return consistencia;
 	}

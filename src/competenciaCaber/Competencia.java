@@ -40,7 +40,7 @@ public class Competencia {
 		}
 	}
 
-	public static Comparator<Concursante> DistanciaComparador = new Comparator<Concursante>() {
+	private static Comparator<Concursante> DistanciaComparador = new Comparator<Concursante>() {
 
 		@Override
 		public int compare(Concursante concursante1, Concursante concursante2) {
@@ -49,7 +49,7 @@ public class Competencia {
 
 	};
 
-	public static Comparator<Concursante> ConsistenciaComparador = new Comparator<Concursante>() {
+	private static Comparator<Concursante> ConsistenciaComparador = new Comparator<Concursante>() {
 
 		@Override
 		public int compare(Concursante concursante1, Concursante concursante2) {
