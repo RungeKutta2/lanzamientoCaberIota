@@ -9,6 +9,7 @@ public class Competencia {
 	private ArrayList<Integer> ganadoresConsistencia;
 	private ArrayList<Concursante> concursantes;
 	private final static int SIN_CALCULAR = -1;
+	private final static int LANZAMIENTO_INVALIDO = -2;
 
 	public Competencia() {
 		ganadoresDistancia = new ArrayList<Integer>();
@@ -34,7 +35,7 @@ public class Competencia {
 		Collections.sort(concursantes, ConsistenciaComparador);
 
 		for (int i = 0; i < 3; i++) {
-			if (concursantes.get(i).getConsistencia() != SIN_CALCULAR) {
+			if (concursantes.get(i).getConsistencia() != LANZAMIENTO_INVALIDO) {
 				ganadoresConsistencia.add(concursantes.get(i).getNumeroDeConcursante());
 			}
 		}
@@ -53,7 +54,11 @@ public class Competencia {
 
 		@Override
 		public int compare(Concursante concursante1, Concursante concursante2) {
-			return concursante1.getConsistencia().compareTo(concursante2.getConsistencia());
+			if(concursante1.getConsistencia() != LANZAMIENTO_INVALIDO && concursante2.getConsistencia() != LANZAMIENTO_INVALIDO) {
+				return concursante1.getConsistencia().compareTo(concursante2.getConsistencia());
+			}else {
+				return 1;		
+			}
 		}
 
 	};
