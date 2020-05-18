@@ -119,25 +119,5 @@ public class CompetenciaTest {
 			e.printStackTrace();
 		}
 	}
-	
-	@Test
-	public void testGanadorEnConsistenciaSegundoEnDistancia() {
-		Competencia competencia = DatosCompetencia.leerArchivo("GanadorEnConsistenciaSegundoEnDistanciaEntrada.in");
-		competencia.calcularGanadorDistancia();
-		competencia.calcularGanadorConsistencia();
-		DatosCompetencia.escribirArchivo("GanadorEnConsistenciaSegundoEnDistanciaObtenido.out", competencia);
-		Scanner scannerEsperado = null, scannerObtenido = null;
-		try {
-			scannerEsperado = new Scanner (new FileReader("GanadorEnConsistenciaSegundoEnDistanciaEsperado.out"));
-			scannerObtenido = new Scanner (new FileReader("GanadorEnConsistenciaSegundoEnDistanciaObtenido.out"));
-			while(scannerEsperado.hasNext() && scannerObtenido.hasNext()) {
-				Assert.assertEquals(scannerEsperado.nextInt(), scannerObtenido.nextInt());				
-			}
-			scannerEsperado.close();
-			scannerObtenido.close();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+
 }
