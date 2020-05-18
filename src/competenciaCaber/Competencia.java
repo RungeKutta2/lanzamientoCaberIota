@@ -22,7 +22,7 @@ public class Competencia {
 		Collections.sort(concursantes, DistanciaComparador);
 
 		for (int i = 0; i < 3; i++) {
-			if (concursantes.get(i).getDistanciaTotal() != 0) {
+			if (concursantes.get(i).getDistanciaTotal() > 0) {
 				ganadoresDistancia.add(concursantes.get(i).getNumeroDeConcursante());
 			}
 		}
