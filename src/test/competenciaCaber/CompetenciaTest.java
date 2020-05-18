@@ -56,26 +56,6 @@ public class CompetenciaTest {
 	}
 
 	
-	@Test
-	public void testEmpate() {
-		Competencia competencia = DatosCompetencia.leerArchivo("EmpateEntrada.in");
-		competencia.calcularGanadorDistancia();
-		competencia.calcularGanadorConsistencia();
-		DatosCompetencia.escribirArchivo("EmpateObtenido.out", competencia);
-		Scanner scannerEsperado = null, scannerObtenido = null;
-		try {
-			scannerEsperado = new Scanner (new FileReader("EmpateEsperado.out"));
-			scannerObtenido = new Scanner (new FileReader("EmpateObtenido.out"));
-			while(scannerEsperado.hasNext() && scannerObtenido.hasNext()) {
-				Assert.assertEquals(scannerEsperado.nextInt(), scannerObtenido.nextInt());				
-			}
-			scannerEsperado.close();
-			scannerObtenido.close();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 	
 	@Test
 	public void testSinGanadoresConsistencia() {
@@ -129,6 +109,27 @@ public class CompetenciaTest {
 		try {
 			scannerEsperado = new Scanner (new FileReader("AngulosMuyCercanosEsperado.out"));
 			scannerObtenido = new Scanner (new FileReader("AngulosMuyCercanosObtenido.out"));
+			while(scannerEsperado.hasNext() && scannerObtenido.hasNext()) {
+				Assert.assertEquals(scannerEsperado.nextInt(), scannerObtenido.nextInt());				
+			}
+			scannerEsperado.close();
+			scannerObtenido.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void AngulosEnDistintasCategorias() {
+		Competencia competencia = DatosCompetencia.leerArchivo("AngulosEnDistintasCategoriasEntrada.in");
+		competencia.calcularGanadorDistancia();
+		competencia.calcularGanadorConsistencia();
+		DatosCompetencia.escribirArchivo("AngulosEnDistintasCategoriasObtenido.out", competencia);
+		Scanner scannerEsperado = null, scannerObtenido = null;
+		try {
+			scannerEsperado = new Scanner (new FileReader("AngulosEnDistintasCategoriasEsperado.out"));
+			scannerObtenido = new Scanner (new FileReader("AngulosEnDistintasCategoriasObtenido.out"));
 			while(scannerEsperado.hasNext() && scannerObtenido.hasNext()) {
 				Assert.assertEquals(scannerEsperado.nextInt(), scannerObtenido.nextInt());				
 			}
