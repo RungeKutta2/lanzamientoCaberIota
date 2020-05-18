@@ -121,15 +121,15 @@ public class CompetenciaTest {
 	}
 	
 	@Test
-	public void AngulosEnDistintasCategorias() {
-		Competencia competencia = DatosCompetencia.leerArchivo("AngulosEnDistintasCategoriasEntrada.in");
+	public void testGanadorEnConsistenciaSegundoEnDistancia() {
+		Competencia competencia = DatosCompetencia.leerArchivo("GanadorEnConsistenciaSegundoEnDistanciaEntrada.in");
 		competencia.calcularGanadorDistancia();
 		competencia.calcularGanadorConsistencia();
-		DatosCompetencia.escribirArchivo("AngulosEnDistintasCategoriasObtenido.out", competencia);
+		DatosCompetencia.escribirArchivo("GanadorEnConsistenciaSegundoEnDistanciaObtenido.out", competencia);
 		Scanner scannerEsperado = null, scannerObtenido = null;
 		try {
-			scannerEsperado = new Scanner (new FileReader("AngulosEnDistintasCategoriasEsperado.out"));
-			scannerObtenido = new Scanner (new FileReader("AngulosEnDistintasCategoriasObtenido.out"));
+			scannerEsperado = new Scanner (new FileReader("GanadorEnConsistenciaSegundoEnDistanciaEsperado.out"));
+			scannerObtenido = new Scanner (new FileReader("GanadorEnConsistenciaSegundoEnDistanciaObtenido.out"));
 			while(scannerEsperado.hasNext() && scannerObtenido.hasNext()) {
 				Assert.assertEquals(scannerEsperado.nextInt(), scannerObtenido.nextInt());				
 			}
