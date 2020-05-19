@@ -22,7 +22,7 @@ public class CompetenciaTest {
 		try {
 			scannerEsperado = new Scanner (new FileReader("ArchivoConsignaEsperado.out"));
 			scannerObtenido = new Scanner (new FileReader("ArchivoConsignaObtenido.out"));
-			while(scannerEsperado.hasNext() && scannerObtenido.hasNext()) {
+			while(scannerEsperado.hasNext() || scannerObtenido.hasNext()) {
 				Assert.assertEquals(scannerEsperado.nextInt(), scannerObtenido.nextInt());				
 			}
 			scannerEsperado.close();
@@ -67,7 +67,7 @@ public class CompetenciaTest {
 		try {
 			scannerEsperado = new Scanner (new FileReader("SinGanadoresConsistenciaEsperado.out"));
 			scannerObtenido = new Scanner (new FileReader("SinGanadoresConsistenciaObtenido.out"));
-			while(scannerEsperado.hasNext() && scannerObtenido.hasNext()) {
+			while(scannerEsperado.hasNext() || scannerObtenido.hasNext()) {
 				Assert.assertEquals(scannerEsperado.nextInt(), scannerObtenido.nextInt());				
 			}
 			scannerEsperado.close();
@@ -88,7 +88,7 @@ public class CompetenciaTest {
 		try {
 			scannerEsperado = new Scanner (new FileReader("MismaDistanciaDistintoAnguloEsperado.out"));
 			scannerObtenido = new Scanner (new FileReader("MismaDistanciaDistintoAnguloObtenido.out"));
-			while(scannerEsperado.hasNext() && scannerObtenido.hasNext()) {
+			while(scannerEsperado.hasNext() || scannerObtenido.hasNext()) {
 				Assert.assertEquals(scannerEsperado.nextInt(), scannerObtenido.nextInt());				
 			}
 			scannerEsperado.close();
@@ -109,7 +109,7 @@ public class CompetenciaTest {
 		try {
 			scannerEsperado = new Scanner (new FileReader("AngulosMuyCercanosEsperado.out"));
 			scannerObtenido = new Scanner (new FileReader("AngulosMuyCercanosObtenido.out"));
-			while(scannerEsperado.hasNext() && scannerObtenido.hasNext()) {
+			while(scannerEsperado.hasNext() || scannerObtenido.hasNext()) {
 				Assert.assertEquals(scannerEsperado.nextInt(), scannerObtenido.nextInt());				
 			}
 			scannerEsperado.close();
