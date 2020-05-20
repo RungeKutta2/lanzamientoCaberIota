@@ -144,6 +144,7 @@ public class CompetenciaTest {
 			}
 		}
 	}
+	
 	@Test
 	public void testSoloTresGanadores() {
 		Competencia competencia = DatosCompetencia.leerArchivo("./testCompetencia/SoloTresGanadoresEntrada.in");
@@ -173,6 +174,7 @@ public class CompetenciaTest {
 	}
 
 	@Test
+	//ACA HAY QUE CALCULAR LA CONSISTENCIA DE LOS ULTIMOS TRES PARA VERIFICAR QUE FUNCIONE
 	public void testUnMillonDeConcursantes() {
 		Competencia competencia = DatosCompetencia.leerArchivo("./testCompetencia/UnMillonDeConcursantesEntrada.in");
 		competencia.calcularGanadorDistancia();
@@ -199,4 +201,6 @@ public class CompetenciaTest {
 			}
 		}
 	}
+	
+
 }

@@ -9,6 +9,7 @@ import competenciaCaber.Lanzamiento;
 
 public class ConcursanteTest {
 	private final static int LANZAMIENTO_INVALIDO = -2;
+	
 	@Test
 	public void testSeSeteaBienElConcursante() {
 		Concursante concursante = new Concursante(1);
@@ -16,6 +17,7 @@ public class ConcursanteTest {
 	}
 	
 	@Test
+	//HAY QUE CALCULAR LA CONSISTENCIA PARA HACER EL ASSERT
 	public void testCalcularConsistenciaJugadorValido() {
 		Concursante concursante = new Concursante(1);
 		Lanzamiento lanzamiento1 = new Lanzamiento(1.50,10.0);
@@ -59,6 +61,7 @@ public class ConcursanteTest {
 	}
 	
 	@Test
+	//ACA HAY QUE CALCULAR LAS DOS CONSISTENCIAS PARA VER SI PRIORIZA O NO LA DISTANCIA
 	public void testPriorizarConsistenciaDistancia() {
 		Concursante concursanteUno = new Concursante(1);
 		Lanzamiento lanzamiento1ConcursanteUno = new Lanzamiento(1.50,10.0);
