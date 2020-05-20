@@ -25,6 +25,8 @@ public class DatosCompetencia {
 					lanzamiento = new Lanzamiento(scanner.nextDouble(), scanner.nextDouble());
 					concursante.setLanzamientos(lanzamiento);
 				}
+				concursante.calcularConsistencia();
+				concursante.calcularDistanciaTotal();
 				competencia.setConcursantes(concursante);
 			}
 			scanner.close();
