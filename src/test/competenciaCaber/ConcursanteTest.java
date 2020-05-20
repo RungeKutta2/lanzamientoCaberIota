@@ -45,7 +45,7 @@ public class ConcursanteTest {
 	}
 	
 	@Test
-	public void testCalcularDistancia() {
+	public void testCalcularDistanciaTotal() {
 		Concursante concursante = new Concursante(1);
 		Lanzamiento lanzamiento1 = new Lanzamiento(1.50,10.0);
 		concursante.setLanzamientos(lanzamiento1);
@@ -61,23 +61,22 @@ public class ConcursanteTest {
 	@Test
 	public void testPriorizarConsistenciaDistancia() {
 		Concursante concursanteUno = new Concursante(1);
-		Lanzamiento lanzamiento1ConcursanteUno = new Lanzamiento(1.50,11.0);
+		Lanzamiento lanzamiento1ConcursanteUno = new Lanzamiento(1.50,10.0);
 		concursanteUno.setLanzamientos(lanzamiento1ConcursanteUno);
-		Lanzamiento lanzamiento2ConcursanteUno = new Lanzamiento(1.51,10);
+		Lanzamiento lanzamiento2ConcursanteUno = new Lanzamiento(1.51,11.0);
 		concursanteUno.setLanzamientos(lanzamiento2ConcursanteUno);
 		Lanzamiento lanzamiento3ConcursanteUno = new Lanzamiento(1.52,10.0);
 		concursanteUno.setLanzamientos(lanzamiento3ConcursanteUno);
 		double consistenciaConcursanteUno = concursanteUno.getConsistencia(); 
 		
 		Concursante concursanteDos = new Concursante(1);
-		Lanzamiento lanzamiento1ConcursanteDos = new Lanzamiento(1.50,11.0);
+		Lanzamiento lanzamiento1ConcursanteDos = new Lanzamiento(1.51,10.5);
 		concursanteDos.setLanzamientos(lanzamiento1ConcursanteDos);
-		Lanzamiento lanzamiento2ConcursanteDos = new Lanzamiento(1.51,10.0);
+		Lanzamiento lanzamiento2ConcursanteDos = new Lanzamiento(1.50,11.5);
 		concursanteDos.setLanzamientos(lanzamiento2ConcursanteDos);
-		Lanzamiento lanzamiento3ConcursanteDos = new Lanzamiento(1.51,12.0);
+		Lanzamiento lanzamiento3ConcursanteDos = new Lanzamiento(1.50,12.0);
 		concursanteDos.setLanzamientos(lanzamiento3ConcursanteDos);
 		double consistenciaConcursanteDos = concursanteDos.getConsistencia(); 
-		
 		
 		double mejorConsistencia = Math.min(consistenciaConcursanteUno,consistenciaConcursanteDos);
 		
