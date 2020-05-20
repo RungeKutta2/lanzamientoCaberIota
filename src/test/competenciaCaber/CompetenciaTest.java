@@ -156,6 +156,7 @@ public class CompetenciaTest {
 			scannerEsperado = new Scanner(new FileReader("./Archivos/SoloTresGanadoresEsperado.out"));
 			scannerObtenido = new Scanner(new FileReader("./Archivos/SoloTresGanadoresObtenido.out"));
 			while (scannerEsperado.hasNext() || scannerObtenido.hasNext()) {
+
 				Assert.assertEquals(scannerEsperado.nextInt(), scannerObtenido.nextInt());
 			}
 
