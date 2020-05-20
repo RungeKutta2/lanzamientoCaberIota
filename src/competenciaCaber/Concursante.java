@@ -44,7 +44,7 @@ public class Concursante {
 			varianzaDistancia = varianzaDistancia / 2;
 			double desvioAngulo = Math.sqrt(varianzaAngulo);
 			double desvioDistancia = Math.sqrt(varianzaDistancia);
-			this.consistencia = (desvioAngulo + desvioDistancia);
+			this.consistencia = (desvioAngulo*0.4 + desvioDistancia*0.6);
 		}
 		else {
 			this.consistencia = LANZAMIENTO_INVALIDO;			
