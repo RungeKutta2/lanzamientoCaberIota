@@ -7,14 +7,11 @@ public class Concursante {
 	private double consistencia;
 	private double distanciaTotal;
 	private ArrayList<Lanzamiento> lanzamientos;
-	private final static int SIN_CALCULAR = -1;
 	private final static int LANZAMIENTO_INVALIDO = -2;
 
 	public Concursante(int numeroDeConcursante) {
 		this.numeroDeConcursante = numeroDeConcursante;
 		this.lanzamientos = new ArrayList<Lanzamiento>();
-		this.distanciaTotal = SIN_CALCULAR;
-		this.consistencia = SIN_CALCULAR;
 
 	}
 
@@ -55,38 +52,33 @@ public class Concursante {
 		boolean esValido = true;
 		int i = 0;
 		while(esValido && i<3) {
-			esValido = lanzamientos.get(i).verificarLanzamiento();
+			esValido = this.lanzamientos.get(i).verificarLanzamiento();
 			i++;
 		}
 		return esValido;
 	}
 
 	public void calcularDistanciaTotal() {
-		distanciaTotal = 0;
-		for (Lanzamiento lanzamiento : lanzamientos) {
-			distanciaTotal += lanzamiento.calcularDistanciaFinal();
+		this.distanciaTotal = 0;
+		for (Lanzamiento lanzamiento : this.lanzamientos) {
+			this.distanciaTotal += lanzamiento.calcularDistanciaFinal();
 		}
 	}
 
 	public int getNumeroDeConcursante() {
-		return numeroDeConcursante;
+		return this.numeroDeConcursante;
 	}
 
 	public Double getConsistencia() {
-		if (consistencia == SIN_CALCULAR) {
-			calcularConsistencia();
-		}
-		return consistencia;
+		return this.consistencia;
 	}
 
 	public Double getDistanciaTotal() {
-		if (distanciaTotal == SIN_CALCULAR) {
-			calcularDistanciaTotal();
-		}
-		return distanciaTotal;
+
+		return this.distanciaTotal;
 	}
 
 	public void setLanzamientos(Lanzamiento lanzamiento) {
-		lanzamientos.add(lanzamiento);
+		this.lanzamientos.add(lanzamiento);
 	}
 }
