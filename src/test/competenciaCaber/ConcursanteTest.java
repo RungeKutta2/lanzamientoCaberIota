@@ -63,18 +63,18 @@ public class ConcursanteTest {
 		Concursante concursanteUno = new Concursante(1);
 		Lanzamiento lanzamiento1ConcursanteUno = new Lanzamiento(1.50,10.0);
 		concursanteUno.setLanzamientos(lanzamiento1ConcursanteUno);
-		Lanzamiento lanzamiento2ConcursanteUno = new Lanzamiento(1.51,11.0);
+		Lanzamiento lanzamiento2ConcursanteUno = new Lanzamiento(1.51,10.1);
 		concursanteUno.setLanzamientos(lanzamiento2ConcursanteUno);
 		Lanzamiento lanzamiento3ConcursanteUno = new Lanzamiento(1.52,10.0);
 		concursanteUno.setLanzamientos(lanzamiento3ConcursanteUno);
 		double consistenciaConcursanteUno = concursanteUno.getConsistencia(); 
 		
 		Concursante concursanteDos = new Concursante(1);
-		Lanzamiento lanzamiento1ConcursanteDos = new Lanzamiento(1.51,10.5);
+		Lanzamiento lanzamiento1ConcursanteDos = new Lanzamiento(1.51,10.0);
 		concursanteDos.setLanzamientos(lanzamiento1ConcursanteDos);
-		Lanzamiento lanzamiento2ConcursanteDos = new Lanzamiento(1.50,11.5);
+		Lanzamiento lanzamiento2ConcursanteDos = new Lanzamiento(1.50,10.1);
 		concursanteDos.setLanzamientos(lanzamiento2ConcursanteDos);
-		Lanzamiento lanzamiento3ConcursanteDos = new Lanzamiento(1.50,12.0);
+		Lanzamiento lanzamiento3ConcursanteDos = new Lanzamiento(1.50,10.2);
 		concursanteDos.setLanzamientos(lanzamiento3ConcursanteDos);
 		double consistenciaConcursanteDos = concursanteDos.getConsistencia(); 
 		
