@@ -14,15 +14,15 @@ public class CompetenciaTest {
 
 	@Test
 	public void testArchivoConsigna() {
-		Competencia competencia = DatosCompetencia.leerArchivo("./Archivos/ArchivoConsignaEntrada.in");
+		Competencia competencia = DatosCompetencia.leerArchivo("./testCompetencia/ArchivoConsignaEntrada.in");
 		competencia.calcularGanadorDistancia();
 		competencia.calcularGanadorConsistencia();
-		DatosCompetencia.escribirArchivo("./Archivos/ArchivoConsignaObtenido.out", competencia);
+		DatosCompetencia.escribirArchivo("./testCompetencia/ArchivoConsignaObtenido.out", competencia);
 		Scanner scannerEsperado = null;
 		Scanner scannerObtenido = null;
 		try {
-			scannerEsperado = new Scanner(new FileReader("./Archivos/ArchivoConsignaEsperado.out"));
-			scannerObtenido = new Scanner(new FileReader("./Archivos/ArchivoConsignaObtenido.out"));
+			scannerEsperado = new Scanner(new FileReader("./testCompetencia/ArchivoConsignaEsperado.out"));
+			scannerObtenido = new Scanner(new FileReader("./testCompetencia/ArchivoConsignaObtenido.out"));
 			while (scannerEsperado.hasNext() || scannerObtenido.hasNext()) {
 				Assert.assertEquals(scannerEsperado.nextInt(), scannerObtenido.nextInt());
 			}
@@ -40,15 +40,15 @@ public class CompetenciaTest {
 
 	@Test
 	public void testSinGanadores() {
-		Competencia competencia = DatosCompetencia.leerArchivo("./Archivos/SinGanadoresEntrada.in");
+		Competencia competencia = DatosCompetencia.leerArchivo("./testCompetencia/SinGanadoresEntrada.in");
 		competencia.calcularGanadorDistancia();
 		competencia.calcularGanadorConsistencia();
-		DatosCompetencia.escribirArchivo("./Archivos/SinGanadoresObtenido.out", competencia);
+		DatosCompetencia.escribirArchivo("./testCompetencia/SinGanadoresObtenido.out", competencia);
 		Scanner scannerEsperado = null;
 		Scanner scannerObtenido = null;
 		try {
-			scannerEsperado = new Scanner(new FileReader("./Archivos/SinGanadoresEsperado.out"));
-			scannerObtenido = new Scanner(new FileReader("./Archivos/SinGanadoresObtenido.out"));
+			scannerEsperado = new Scanner(new FileReader("./testCompetencia/SinGanadoresEsperado.out"));
+			scannerObtenido = new Scanner(new FileReader("./testCompetencia/SinGanadoresObtenido.out"));
 			while (scannerEsperado.hasNext() || scannerObtenido.hasNext()) {
 				Assert.assertEquals(scannerEsperado.nextInt(), scannerObtenido.nextInt());
 			}
@@ -66,15 +66,15 @@ public class CompetenciaTest {
 
 	@Test
 	public void testSinGanadoresConsistencia() {
-		Competencia competencia = DatosCompetencia.leerArchivo("./Archivos/SinGanadoresConsistenciaEntrada.in");
+		Competencia competencia = DatosCompetencia.leerArchivo("./testCompetencia/SinGanadoresConsistenciaEntrada.in");
 		competencia.calcularGanadorDistancia();
 		competencia.calcularGanadorConsistencia();
-		DatosCompetencia.escribirArchivo("./Archivos/SinGanadoresConsistenciaObtenido.out", competencia);
+		DatosCompetencia.escribirArchivo("./testCompetencia/SinGanadoresConsistenciaObtenido.out", competencia);
 		Scanner scannerEsperado = null;
 		Scanner scannerObtenido = null;
 		try {
-			scannerEsperado = new Scanner(new FileReader("./Archivos/SinGanadoresConsistenciaEsperado.out"));
-			scannerObtenido = new Scanner(new FileReader("./Archivos/SinGanadoresConsistenciaObtenido.out"));
+			scannerEsperado = new Scanner(new FileReader("./testCompetencia/SinGanadoresConsistenciaEsperado.out"));
+			scannerObtenido = new Scanner(new FileReader("./testCompetencia/SinGanadoresConsistenciaObtenido.out"));
 			while (scannerEsperado.hasNext() || scannerObtenido.hasNext()) {
 				Assert.assertEquals(scannerEsperado.nextInt(), scannerObtenido.nextInt());
 			}
@@ -93,15 +93,15 @@ public class CompetenciaTest {
 
 	@Test
 	public void testMismaDistanciaDistintoAngulo() {
-		Competencia competencia = DatosCompetencia.leerArchivo("./Archivos/MismaDistanciaDistintoAnguloEntrada.in");
+		Competencia competencia = DatosCompetencia.leerArchivo("./testCompetencia/MismaDistanciaDistintoAnguloEntrada.in");
 		competencia.calcularGanadorDistancia();
 		competencia.calcularGanadorConsistencia();
-		DatosCompetencia.escribirArchivo("./Archivos/MismaDistanciaDistintoAnguloObtenido.out", competencia);
+		DatosCompetencia.escribirArchivo("./testCompetencia/MismaDistanciaDistintoAnguloObtenido.out", competencia);
 		Scanner scannerEsperado = null;
 		Scanner scannerObtenido = null;
 		try {
-			scannerEsperado = new Scanner(new FileReader("./Archivos/MismaDistanciaDistintoAnguloEsperado.out"));
-			scannerObtenido = new Scanner(new FileReader("./Archivos/MismaDistanciaDistintoAnguloObtenido.out"));
+			scannerEsperado = new Scanner(new FileReader("./testCompetencia/MismaDistanciaDistintoAnguloEsperado.out"));
+			scannerObtenido = new Scanner(new FileReader("./testCompetencia/MismaDistanciaDistintoAnguloObtenido.out"));
 			while (scannerEsperado.hasNext() || scannerObtenido.hasNext()) {
 				Assert.assertEquals(scannerEsperado.nextInt(), scannerObtenido.nextInt());
 			}
@@ -120,15 +120,15 @@ public class CompetenciaTest {
 
 	@Test
 	public void testAngulosMuyCercanos() {
-		Competencia competencia = DatosCompetencia.leerArchivo("./Archivos/AngulosMuyCercanosEntrada.in");
+		Competencia competencia = DatosCompetencia.leerArchivo("./testCompetencia/AngulosMuyCercanosEntrada.in");
 		competencia.calcularGanadorDistancia();
 		competencia.calcularGanadorConsistencia();
-		DatosCompetencia.escribirArchivo("./Archivos/AngulosMuyCercanosObtenido.out", competencia);
+		DatosCompetencia.escribirArchivo("./testCompetencia/AngulosMuyCercanosObtenido.out", competencia);
 		Scanner scannerEsperado = null;
 		Scanner scannerObtenido = null;
 		try {
-			scannerEsperado = new Scanner(new FileReader("./Archivos/AngulosMuyCercanosEsperado.out"));
-			scannerObtenido = new Scanner(new FileReader("./Archivos/AngulosMuyCercanosObtenido.out"));
+			scannerEsperado = new Scanner(new FileReader("./testCompetencia/AngulosMuyCercanosEsperado.out"));
+			scannerObtenido = new Scanner(new FileReader("./testCompetencia/AngulosMuyCercanosObtenido.out"));
 			while (scannerEsperado.hasNext() || scannerObtenido.hasNext()) {
 				Assert.assertEquals(scannerEsperado.nextInt(), scannerObtenido.nextInt());
 			}
@@ -146,15 +146,15 @@ public class CompetenciaTest {
 	}
 	@Test
 	public void testSoloTresGanadores() {
-		Competencia competencia = DatosCompetencia.leerArchivo("./Archivos/SoloTresGanadoresEntrada.in");
+		Competencia competencia = DatosCompetencia.leerArchivo("./testCompetencia/SoloTresGanadoresEntrada.in");
 		competencia.calcularGanadorDistancia();
 		competencia.calcularGanadorConsistencia();
-		DatosCompetencia.escribirArchivo("./Archivos/SoloTresGanadoresObtenido.out", competencia);
+		DatosCompetencia.escribirArchivo("./testCompetencia/SoloTresGanadoresObtenido.out", competencia);
 		Scanner scannerEsperado = null;
 		Scanner scannerObtenido = null;
 		try {
-			scannerEsperado = new Scanner(new FileReader("./Archivos/SoloTresGanadoresEsperado.out"));
-			scannerObtenido = new Scanner(new FileReader("./Archivos/SoloTresGanadoresObtenido.out"));
+			scannerEsperado = new Scanner(new FileReader("./testCompetencia/SoloTresGanadoresEsperado.out"));
+			scannerObtenido = new Scanner(new FileReader("./testCompetencia/SoloTresGanadoresObtenido.out"));
 			while (scannerEsperado.hasNext() || scannerObtenido.hasNext()) {
 
 				Assert.assertEquals(scannerEsperado.nextInt(), scannerObtenido.nextInt());
