@@ -172,4 +172,31 @@ public class CompetenciaTest {
 		}
 	}
 
+	@Test
+	public void testUnMillonDeConcursantes() {
+		Competencia competencia = DatosCompetencia.leerArchivo("./testCompetencia/UnMillonDeConcursantesEntrada.in");
+		competencia.calcularGanadorDistancia();
+		competencia.calcularGanadorConsistencia();
+		DatosCompetencia.escribirArchivo("./testCompetencia/UnMillonDeConcursantesObtenido.out", competencia);
+		Scanner scannerEsperado = null;
+		Scanner scannerObtenido = null;
+		try {
+			scannerEsperado = new Scanner(new FileReader("./testCompetencia/UnMillonDeConcursantesEsperado.out"));
+			scannerObtenido = new Scanner(new FileReader("./testCompetencia/UnMillonDeConcursantesObtenido.out"));
+			while (scannerEsperado.hasNext() || scannerObtenido.hasNext()) {
+
+				Assert.assertEquals(scannerEsperado.nextInt(), scannerObtenido.nextInt());
+			}
+
+		} catch (FileNotFoundException e) {
+			System.err.println(e.getMessage());
+		} finally {
+			if (scannerEsperado != null) {
+				scannerEsperado.close();
+			}
+			if (scannerObtenido != null) {
+				scannerObtenido.close();
+			}
+		}
+	}
 }
