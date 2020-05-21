@@ -1,4 +1,4 @@
-package test.competenciaCaber;
+package test;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -17,19 +17,31 @@ public class ConcursanteTest {
 	}
 	
 	@Test
-	//HAY QUE CALCULAR LA CONSISTENCIA PARA HACER EL ASSERT
-	public void testCalcularConsistenciaJugadorValido() {
+	public void testCalcularConsistenciaIdeal() {
 		Concursante concursante = new Concursante(1);
 		Lanzamiento lanzamiento1 = new Lanzamiento(1.50,10.0);
 		concursante.setLanzamientos(lanzamiento1);
-		Lanzamiento lanzamiento2 = new Lanzamiento(1.51,11.0);
+		Lanzamiento lanzamiento2 = new Lanzamiento(1.50,10.0);
 		concursante.setLanzamientos(lanzamiento2);
-		Lanzamiento lanzamiento3 = new Lanzamiento(1.52,12.0);
+		Lanzamiento lanzamiento3 = new Lanzamiento(1.50,10.0);
+		concursante.setLanzamientos(lanzamiento3);
+		concursante.calcularConsistencia();
+		Assert.assertEquals(0, concursante.getConsistencia(),0);
+	}
+	
+	@Test
+	public void testCalcularConsistenciaJugadorValido() {
+		double consistenciaCorrecta = 2.1249;
+		Concursante concursante = new Concursante(1);
+		Lanzamiento lanzamiento1 = new Lanzamiento(1.50,10.0);
+		concursante.setLanzamientos(lanzamiento1);
+		Lanzamiento lanzamiento2 = new Lanzamiento(1.40,15.0);
+		concursante.setLanzamientos(lanzamiento2);
+		Lanzamiento lanzamiento3 = new Lanzamiento(1.80,20.0);
 		concursante.setLanzamientos(lanzamiento3);
 		concursante.calcularConsistencia();
 		
-		
-		Assert.assertEquals(0, concursante.getConsistencia(),0.5);
+		Assert.assertEquals(consistenciaCorrecta, concursante.getConsistencia(),0.0001);
 	}
 	
 	@Test
@@ -48,6 +60,7 @@ public class ConcursanteTest {
 	
 	@Test
 	public void testCalcularDistanciaTotal() {
+		Double distanciaTotalCorrecta = 2.708;
 		Concursante concursante = new Concursante(1);
 		Lanzamiento lanzamiento1 = new Lanzamiento(1.50,10.0);
 		concursante.setLanzamientos(lanzamiento1);
@@ -57,7 +70,7 @@ public class ConcursanteTest {
 		concursante.setLanzamientos(lanzamiento3);
 		concursante.calcularDistanciaTotal();
 		
-		Assert.assertEquals(2.708, concursante.getDistanciaTotal(),0);
+		Assert.assertEquals(distanciaTotalCorrecta, concursante.getDistanciaTotal(),0);
 	}
 	
 	@Test

@@ -1,4 +1,4 @@
-package test.competenciaCaber;
+package test;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -174,7 +174,6 @@ public class CompetenciaTest {
 	}
 
 	@Test
-	//ACA HAY QUE CALCULAR LA CONSISTENCIA DE LOS ULTIMOS TRES PARA VERIFICAR QUE FUNCIONE
 	public void testUnMillonDeConcursantes() {
 		Competencia competencia = DatosCompetencia.leerArchivo("./testCompetencia/UnMillonDeConcursantesEntrada.in");
 		competencia.calcularGanadorDistancia();
